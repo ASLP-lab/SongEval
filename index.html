@@ -269,8 +269,8 @@ jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
             <p>
             </p>
             <div>
-              <a href="https://arxiv.org/pdf/2502.02942"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg"></a>
-              <a href="https://huggingface.co/datasets/ASLP-lab/SongEval"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-yellow"></a>
+              <a href="https://arxiv.org/pdf/2505.10793"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg"></a>
+              <a href="https://huggingface.co/datasets/ASLP-lab/SongEval"><img src="https://camo.githubusercontent.com/abd4f8cad9643db5d257d7dd5c47b061c6c80fc46d62046aa06a1e53215c5201/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f25463025394625413425393725323048756767696e67253230466163652d626c75653f6c6162656c3d44617461736574"></a>
               <a href="https://github.com/ASLP-lab/SongEval"><img src="https://img.shields.io/badge/Code-SongEval-blue?logo=github"></a>
           </div>
             <div class="row">
@@ -293,7 +293,7 @@ jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 
   <main>
     <div class="container">
-      <!-- <div class="row" id="intro">
+      <div class="row" id="intro">
         <div class="col">
           <p>This page shows the samples in the paper "<b>SongEval: A Benchmark Dataset for Song Aesthetics Evaluation</b>".
           <h2>Abstract</h2>
@@ -302,21 +302,82 @@ jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
             </p>
           </div>
         </div>
-      </div> -->
-      <!-- <hr>
+      </div>
+      <hr>
       <div class="row" id="intro">
         <div class="col">
-          <h2>GenSE Framework</h2>
+          <h2>SongEval</h2>
           <div>
-            <img src="./audios/gense.png" width="100%">
-            The hierarchical modeling framework of language model in GenSE.
+            <img src="./audios/intro.drawio.png" width="50%">
+            <br>
+            Aesthetic evaluation dimensions and structural components of a song.
           </div>
         </div>
       </div>
-      <hr> -->
+      <hr>
+
+      <section class="mb-10">
+        <h3 class="text-2xl font-semibold mb-4">🎵 Generated Songs with Higher Aesthetic Scores</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Song cards -->
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">English Song 1</h4>
+            <audio src="audios/demo/perfect/en/1835.mp3" controls class="w-full"></audio>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">English Song 2</h4>
+            <audio src="audios/demo/perfect/en/1904.mp3" controls class="w-full"></audio>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">English Song 3</h4>
+            <audio src="audios/demo/perfect/en/2265.mp3" controls class="w-full"></audio>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">Chinese Song 1</h4>
+            <audio src="audios/demo/perfect/cn/634.mp3" controls class="w-full"></audio>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">Chinese Song 2</h4>
+            <audio src="audios/demo/perfect/cn/852.mp3" controls class="w-full"></audio>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">Chinese Song 3</h4>
+            <audio src="audios/demo/perfect/cn/862.mp3" controls class="w-full"></audio>
+          </div>
+        </div>
+      </section>
+      
+      <br>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-4">🎵 Generated Songs with Lower Aesthetic Scores over Each Dimension</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">Overall Coherence</h4>
+            <audio src="audios/demo/co.mp3" controls class="w-full"></audio>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">Memorability</h4>
+            <audio src="audios/demo/mem.mp3" controls class="w-full"></audio>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">Naturalness of Vocal Breathing and Phrasing</h4>
+            <audio src="audios/demo/natural.mp3" controls class="w-full"></audio>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">Clarity of Song Structure</h4>
+            <audio src="audios/demo/clarity.mp3" controls class="w-full"></audio>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4">
+            <h4 class="text-lg font-semibold mb-2">Overall Musicality</h4>
+            <audio src="audios/demo/music.mp3" controls class="w-full"></audio>
+          </div>
+        </div>
+      </section>
 
       
-      Coming soon !
+      
+      
       
 
     </div>
