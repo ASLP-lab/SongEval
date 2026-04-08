@@ -268,22 +268,22 @@ jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
               SongEval: A Benchmark Dataset for Song Aesthetics Evaluation</a></h1>
             <p>
             </p>
-            <div>
-              <a href="https://arxiv.org/pdf/2505.10793"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg"></a>
-              <a href="https://huggingface.co/datasets/ASLP-lab/SongEval"><img src="https://camo.githubusercontent.com/abd4f8cad9643db5d257d7dd5c47b061c6c80fc46d62046aa06a1e53215c5201/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f25463025394625413425393725323048756767696e67253230466163652d626c75653f6c6162656c3d44617461736574"></a>
-              <a href="https://github.com/ASLP-lab/SongEval"><img src="https://img.shields.io/badge/Code-SongEval-blue?logo=github"></a>
-          </div>
             <div class="row">
-              <div class="col-md col-sm-12"><a class="text-light">Jixun Yao, Guobin Ma, Huixin Xue, Huakang Chen, Chunbo Hao, Yuepeng Jiang, Haohe Liu, Ruibin Yuan, Jin Xu, Wei Xue, Hao Liu, Lei Xie</a>
-                <br> <a class="text-light">Northwestern Polytechnical University</a> 
-                <br> <a class="text-light">Shanghai Conservatory of Music</a>
-                <br> <a class="text-light">University of Surrey</a>
-                <br> <a class="text-light">Hong Kong University of Science and Technology</a>
-              
-              
+              <div class="col-md col-sm-12"><a class="text-light">Jixun Yao<sup>1</sup>, Guobin Ma<sup>1</sup>, Huixin Xue<sup>2</sup>, Huakang Chen<sup>1</sup>, Chunbo Hao<sup>1</sup>, Yuepeng Jiang<sup>1</sup>, Haohe Liu<sup>3</sup>, Ruibin Yuan<sup>4</sup>, Jin Xu<sup>5</sup>, Wei Xue<sup>4</sup>, Hao Liu<sup>2</sup>, Lei Xie<sup>1</sup></a>
+                <br> <a class="text-light"><sup>1</sup>Northwestern Polytechnical University</a> 
+                <br> <a class="text-light"><sup>2</sup>Shanghai Conservatory of Music</a>
+                <br> <a class="text-light"><sup>3</sup>University of Surrey</a>
+                <br> <a class="text-light"><sup>4</sup>Hong Kong University of Science and Technology</a>
+                <br> <a class="text-light"><sup>5</sup>Independent Researcher</a>
+              </div>
             </div>
-
-
+            
+            <div class="mt-4">
+              <a href="https://arxiv.org/pdf/2505.10793" class="mx-1"><img src="https://img.shields.io/badge/arXiv-Paper-B31B1B.svg" alt="arXiv"></a>
+              <a href="https://huggingface.co/datasets/ASLP-lab/SongEval" class="mx-1"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow" alt="Hugging Face"></a>
+              <a href="https://github.com/ASLP-lab/SongEval" class="mx-1"><img src="https://img.shields.io/badge/Code-SongEval-white?logo=github&logoColor=black" alt="Code"></a>
+            </div>
+          
           </div>
         </div>
       </div>
@@ -293,92 +293,257 @@ jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 
   <main>
     <div class="container">
-      <div class="row" id="intro">
+      
+      <!-- Table of Contents -->
+      <div class="row mb-5 mt-4">
         <div class="col">
-          <p>This page shows the samples in the paper "<b>SongEval: A Benchmark Dataset for Song Aesthetics Evaluation</b>".
+          <div class="card bg-light border-0 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-secondary border-bottom pb-2">📖 Table of Contents</h5>
+              <ul class="list-unstyled mb-0" style="line-height: 1.8;">
+                <li><a href="#abstract" class="text-dark font-weight-bold">Abstract</a></li>
+                <li><a href="#songeval" class="text-dark font-weight-bold">SongEval Overview</a></li>
+                <li>
+                  <a href="#audio-samples" class="text-dark font-weight-bold">Audio Samples</a>
+                  <ul class="list-unstyled ml-4 mt-1">
+                    <li><a href="#high-scores" class="text-muted">Generated Songs with Higher Aesthetic Scores</a></li>
+                    <li><a href="#low-scores" class="text-muted">Generated Songs with Lower Aesthetic Scores over Each Dimension</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#appendix" class="text-dark font-weight-bold">Supplementary Material</a>
+                  <ul class="list-unstyled ml-4 mt-1">
+                    <li><a href="#limitations" class="text-muted">A. Limitations and Future Work</a></li>
+                    <li><a href="#characteristics" class="text-muted">B. Characteristic details of generated songs</a></li>
+                    <li><a href="#duration" class="text-muted">C. Duration distribution of generated songs</a></li>
+                    <li><a href="#filter" class="text-muted">D. Filter process of generated songs</a></li>
+                    <li><a href="#definitions" class="text-muted">E. Definitions of each point on the 1-5 scale</a></li>
+                    <li><a href="#annotation" class="text-muted">F. Details of annotation process</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="abstract">
+        <div class="col">
           <h2>Abstract</h2>
           <div style="text-align: justify;">
+            <p>
             Aesthetics serve as an implicit and important criterion in song generation tasks that reflect human perception beyond objective metrics. However, evaluating the aesthetics of generated songs remains a fundamental challenge, as the appreciation of music is highly subjective. Existing evaluation metrics, such as embedding-based distances, are limited in reflecting the subjective and perceptual aspects that define musical appeal. To address this issue, we introduce SongEval, the first open-source, large-scale benchmark dataset for evaluating the aesthetics of full-length songs. SongEval includes over 2,399 songs in full length, summing up to more than 140 hours, with aesthetic ratings from 16 professional annotators with musical backgrounds. Each song is evaluated across five key dimensions: overall coherence, memorability, naturalness of vocal breathing and phrasing, clarity of song structure, and overall musicality. The dataset covers both English and Chinese songs, spanning nine mainstream genres. Moreover, to assess the effectiveness of song aesthetic evaluation, we conduct experiments using SongEval to predict aesthetic scores and demonstrate better performance than existing objective evaluation metrics in predicting human-perceived musical quality.
             </p>
           </div>
         </div>
       </div>
       <hr>
-      <div class="row" id="intro">
+      <div class="row" id="songeval">
         <div class="col">
           <h2>SongEval</h2>
-          <div>
-            <img src="./audios/intro.drawio.png" width="50%">
-            <br>
-            Aesthetic evaluation dimensions and structural components of a song.
+          <div class="text-center">
+            <div class="mb-5">
+              <img src="./sources/figs/intro.png" class="img-fluid rounded shadow-sm" style="max-width: 80%;" alt="Aesthetic evaluation dimensions">
+              <p class="text-muted mt-2"><strong>Figure 1. </strong>Aesthetic evaluation dimensions and structural components of a song.</p>
+            </div>
+
+            <div class="mb-5">
+              <img src="./sources/figs/collection.jpg" class="img-fluid rounded shadow-sm" style="max-width: 80%;" alt="Data collection pipeline">
+              <p class="text-muted mt-2"><strong>Figure 2. </strong>The data collection pipeline of SongEval.</p>
+            </div>
+
           </div>
         </div>
       </div>
       <hr>
 
-      <section class="mb-10">
-        <h3 class="text-2xl font-semibold mb-4">🎵 Generated Songs with Higher Aesthetic Scores</h3>
+      <div id="audio-samples" class="mb-5">
+        <h2 class="mb-4">Audio Samples</h2>
+        
+        <section class="mb-10" id="high-scores">
+          <h3 class="text-2xl font-semibold mb-4">🎵 Generated Songs with Higher Aesthetic Scores</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Song cards -->
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">English Song 1</h4>
-            <audio src="audios/demo/perfect/en/1835.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/perfect/en/1835.mp3" controls class="w-full"></audio>
           </div>
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">English Song 2</h4>
-            <audio src="audios/demo/perfect/en/1904.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/perfect/en/1904.mp3" controls class="w-full"></audio>
           </div>
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">English Song 3</h4>
-            <audio src="audios/demo/perfect/en/2265.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/perfect/en/2265.mp3" controls class="w-full"></audio>
           </div>
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">Chinese Song 1</h4>
-            <audio src="audios/demo/perfect/cn/634.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/perfect/cn/634.mp3" controls class="w-full"></audio>
           </div>
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">Chinese Song 2</h4>
-            <audio src="audios/demo/perfect/cn/852.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/perfect/cn/852.mp3" controls class="w-full"></audio>
           </div>
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">Chinese Song 3</h4>
-            <audio src="audios/demo/perfect/cn/862.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/perfect/cn/862.mp3" controls class="w-full"></audio>
           </div>
         </div>
       </section>
       
       <br>
 
-      <section>
+      <section id="low-scores">
         <h3 class="text-2xl font-semibold mb-4">🎵 Generated Songs with Lower Aesthetic Scores over Each Dimension</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">Overall Coherence</h4>
-            <audio src="audios/demo/co.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/co.mp3" controls class="w-full"></audio>
           </div>
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">Memorability</h4>
-            <audio src="audios/demo/mem.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/mem.mp3" controls class="w-full"></audio>
           </div>
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">Naturalness of Vocal Breathing and Phrasing</h4>
-            <audio src="audios/demo/natural.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/natural.mp3" controls class="w-full"></audio>
           </div>
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">Clarity of Song Structure</h4>
-            <audio src="audios/demo/clarity.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/clarity.mp3" controls class="w-full"></audio>
           </div>
           <div class="bg-white rounded-xl shadow p-4">
             <h4 class="text-lg font-semibold mb-2">Overall Musicality</h4>
-            <audio src="audios/demo/music.mp3" controls class="w-full"></audio>
+            <audio src="sources/demo/music.mp3" controls class="w-full"></audio>
           </div>
         </div>
       </section>
+      
+      </div>
 
-      
-      
-      
-      
+      <hr>
+
+      <section class="mb-10" id="appendix">
+        <h2 class="mb-4">Supplementary Material</h2>
+        
+        <!-- Limitations and Future Work -->
+        <div class="mb-4" id="limitations">
+          <h4 class="font-weight-bold">A. Limitations and Future Work</h4>
+          <div class="text-justify mt-2">
+            <p class="mb-3">
+              <strong>Dimension Interdependence.</strong> One key limitation lies in the potential correlation and overlap among the five defined aesthetic dimensions. For instance, dimensions such as overall coherence and structural clarity, or musicality and memorability, may exhibit partial interdependence in practice. This is partly due to the holistic nature of song perception, where multiple musical aspects often influence a listener’s judgment simultaneously. Despite our efforts to provide clear annotation guidelines and expert training to distinguish these dimensions, subjective perception inherently involves cognitive and emotional entanglement, making absolute separation between factors challenging. We view this limitation as reflecting a psychologically grounded characteristic of how listeners experience songs, rather than as a flaw unique to the dataset.
+            </p>
+            <p class="mb-3">
+              <strong>Score Distribution Skew and Limited High-End Discriminability.</strong> Another limitation is that the score distribution in SongEval is skewed toward higher ratings, with a substantial proportion of annotations concentrated in the 4-5 range across most dimensions. This partly reflects the practical observation that current song generation systems often produce outputs without severe defects, rather than annotation bias alone. Nevertheless, such imbalance limits the benchmark’s ability to distinguish strong samples from truly top-tier ones. This issue is also consistent with our observations from the ICASSP 2026 Automatic Song Aesthetics Evaluation (ASAE) Challenge, where participating systems generally achieved strong rank-correlation performance but remained limited in top-tier discrimination. Future versions of the dataset may therefore benefit from broader quality coverage and clearer score anchoring at the upper end of the scale.
+            </p>
+            <p class="mb-0">
+              <strong>Inter-Annotator Agreement.</strong> Although each song in SongEval was independently rated by four expert annotators and multiple quality control measures were applied, the main paper did not report formal inter-annotator agreement statistics. We provide them here for transparency: Krippendorff’s alpha values are 0.767, 0.703, 0.670, 0.746, and 0.769 for Coherence, Memorability, Naturalness, Clarity, and Musicality, respectively. These results indicate moderate-to-substantial agreement for a subjective aesthetic evaluation task, while also suggesting that some dimensions remain more perceptually ambiguous than others. In particular, Naturalness yields the lowest agreement, which is consistent with findings from the ICASSP 2026 ASAE Challenge, where Naturalness also proved to be the most difficult dimension to predict reliably.
+            </p>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Characteristic details -->
+        <div class="mb-4" id="characteristics">
+          <h4 class="font-weight-bold">B. Characteristic details of generated songs</h4>
+          <div class="mt-2">
+            <p class="text-justify">To ensure consistency across samples from different music generation systems, we standardized and documented the audio format for all generated songs. The table below summarizes the sampling rate and channel configuration used by each system. YUE produces mono-channel audio; to maintain uniformity for downstream processing and model training, we duplicated the mono channel to simulate a stereo channel signal.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered text-center align-middle" style="max-width: 800px; margin: 0 auto;">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Property</th>
+                    <th>Suno</th>
+                    <th>Udio</th>
+                    <th>Mureka</th>
+                    <th>YUE</th>
+                    <th>DiffRhythm</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Sampling Rate</td>
+                    <td>48000</td>
+                    <td>48000</td>
+                    <td>44100</td>
+                    <td>44100</td>
+                    <td>44100</td>
+                  </tr>
+                  <tr>
+                    <td>Channel</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Duration distribution -->
+        <div class="mb-4" id="duration">
+          <h4 class="font-weight-bold">C. Duration distribution of generated songs</h4>
+          <div class="text-justify mt-2">
+            <div class="text-center mb-3">
+              <img src="./sources/figs/duration.jpg" class="img-fluid rounded shadow-sm" style="max-width: 80%;" alt="Duration distribution">
+              <p class="text-muted mt-2"><strong>Figure 3. </strong>Duration distribution across different languages and generation models.</p>
+            </div>
+            <p>
+              As shown in Figure 3, the generated songs exhibit distinct duration distributions depending on both the language and the generation model used. A noticeable phenomenon is that the songs generated by DiffRhythm have a fixed duration of exactly 285 seconds, which leads to a sharp concentration of songs around the four-minute mark in the overall distribution. This characteristic is an artifact of the DiffRhythm model's specific generation pipeline and constraint settings.
+            </p>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Filter process -->
+        <div class="mb-4" id="filter">
+          <h4 class="font-weight-bold">D. Filter process of generated songs</h4>
+          <div class="text-justify mt-2">
+            We employ vocal range to analyze the vocal components of each generated song to detect cases lacking singing voice, such as instrumental-only tracks or speech-like readings. Samples that do not meet the minimum vocal characteristics expected in a sung performance are excluded from the dataset. This ensures that all retained samples exhibit meaningful vocal content consistent with the intended song structure and aesthetic.
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Definitions -->
+        <div class="mb-4" id="definitions">
+          <h4 class="font-weight-bold">E. Definitions of each point on the 1-5 scale</h4>
+          <div class="text-justify mt-2">
+            <p>We define a framework that focuses on five key dimensions, each assessed on a 1-5 point scale, where higher scores indicate greater proficiency and adherence to established musical principles. These dimensions aim to provide a detailed and objective measure of a piece's overall quality, from its structural integrity to its emotional impact and memorability. The scoring criteria for each dimension are defined below, offering clear benchmarks for evaluators.</p>
+            <ul>
+              <li class="mb-2"><strong>Coherence:</strong> This dimension assesses the interconnectedness and emotional unity across various musical sections (e.g., introduction, verse, chorus, bridge, outro) within a piece. It evaluates the natural flow and dynamic integration between these elements.</li>
+              <li class="mb-2"><strong>Memorability:</strong> This dimension evaluates whether the piece contains elements that are easily remembered or recognized after a single listening, such as distinctive melodic hooks, rhythmic patterns, or unique instrumental motifs.</li>
+              <li class="mb-2"><strong>Naturalness:</strong> This dimension evaluates the appropriateness of breath control, articulation, and the alignment of vocal delivery with the lyrical meaning, rhythmic structure, and melodic flow of the song. Inappropriate vocal delivery can significantly disrupt the listening experience.</li>
+              <li class="mb-2"><strong>Clarity:</strong> This dimension assesses the clarity and logical arrangement of the song's structural sections (e.g., intro, verse, chorus, bridge, outro). It also considers whether the arrangement follows traditional song structures or presents a clear and effective innovative design.</li>
+              <li class="mb-2"><strong>Musicality:</strong> This dimension assesses the overall sensory comfort and pleasantness of the musical experience, considering the mix, balance, timbre, arrangement, vocal performance, and the synergy between different musical elements (e.g., human voice and instrumental accompaniment).</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Annotation process -->
+        <div class="mb-4" id="annotation">
+          <h4 class="font-weight-bold">F. Details of annotation process</h4>
+          <div class="text-justify mt-2">
+            <p>To ensure reliable and standardized subjective annotation, we employed a web-based annotation platform that integrates both audio playback and visual spectrogram display. Annotators were asked to listen to the full song before assigning ratings across five aesthetic dimensions using intuitive sliders, each ranging from 1 (very poor) to 5 (excellent). The interface was designed for clarity and efficiency, facilitating streamlined submission and navigation between songs.</p>
+            <div class="text-center my-4">
+              <img src="./sources/figs/annotation.png" alt="Screenshot of subjective annotation interface" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+              <p class="text-muted mt-2"><strong>Figure 4. </strong>Screenshot of subjective annotation interface used for evaluating musical aesthetics.</p>
+            </div>
+            <p>To guarantee high-quality and unbiased annotations, we collaborated with an independent third-party team specializing in audio annotation. This team was responsible for managing the annotation workflow, verifying annotator qualifications, and monitoring consistency throughout the process. Annotators were selected based on their musical background or relevant auditory experience, and were given detailed training on the five aesthetic criteria.</p>
+            <p>Each annotator was compensated at a rate of $5 USD per song, calibrated to reflect the average song duration (2–6 minutes) and required attention. In total, annotations were collected for 2,399 songs, with the complete annotation process managed and quality-controlled by the third-party team. On the generation side, to build a musically diverse and high-quality dataset, we accessed three commercial song generation systems—Udio, Suno, and Mureka—through official APIs or premium memberships. These services required monthly subscriptions or credit-based payments, averaging $30 USD per system. The total cost for song generation and access rights amounted to approximately $48,000 USD, including necessary premium plans for exporting full-length tracks.</p>
+          </div>
+        </div>
+
+      </section>
 
     </div>
   </main>
